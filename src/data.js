@@ -1,8 +1,10 @@
 import { Camera, ScanLine, BookOpen, WifiOff, CloudUpload, Gauge } from 'lucide-react'
 
 export const navLinks = [
+  { href: '#ahorro', label: 'Ahorro' },
   { href: '#como-funciona', label: 'Cómo funciona' },
   { href: '#funciones', label: 'Funciones' },
+  { href: '#panel', label: 'Panel' },
   { href: '#calculadora', label: 'Precisión' },
   { href: '#faq', label: 'Preguntas' },
 ]
@@ -14,7 +16,7 @@ export const steps = [
   },
   {
     title: 'La IA toma las medidas',
-    text: 'Detecta perímetro torácico, largo corporal, altura a la cruz y ancho de cadera.',
+    text: 'Un modelo de visión artificial entrenado a gran escala analiza la foto y estima perímetro torácico, largo corporal, altura a la cruz y ancho de cadera.',
   },
   {
     title: 'Peso y registro',
@@ -30,8 +32,8 @@ export const features = [
   },
   {
     icon: ScanLine,
-    title: 'Raza y condición corporal',
-    text: 'Identifica la raza y la condición del animal, con observaciones y nivel de confianza.',
+    title: 'IA que entiende al animal',
+    text: 'Además de las medidas, la IA identifica la raza y la condición corporal, con observaciones y nivel de confianza.',
   },
   {
     icon: Gauge,
@@ -55,10 +57,13 @@ export const features = [
   },
 ]
 
+export const disclaimer =
+  'HerDex ofrece estimaciones de peso con fines orientativos. Los resultados dependen de condiciones ideales de iluminación, encuadre y referencia de escala, y no reemplazan el pesaje en una báscula.'
+
 export const faqs = [
   {
     q: '¿Qué tan exacta es la estimación?',
-    a: 'Es una estimación basada en medidas visuales y cada resultado muestra su porcentaje de confianza. Una foto lateral, nítida y con el animal completo da los mejores resultados. Para ventas o transacciones críticas, valida con báscula.',
+    a: 'Es una estimación orientativa basada en medidas visuales, y cada resultado muestra su porcentaje de confianza. Su precisión depende de condiciones ideales: buena iluminación, el animal completo y de costado, sobre terreno plano y con una referencia de escala adecuada. No reemplaza el pesaje en báscula: para ventas, dosificaciones o cualquier decisión que requiera el peso exacto, pesa al animal en una báscula.',
   },
   {
     q: '¿Necesito internet?',
@@ -89,5 +94,40 @@ export const credits = [
     who: 'Carlos Ebert',
     license: 'CC BY 2.0',
     href: 'https://commons.wikimedia.org/wiki/File:Nelore_cattle_-_12704276665.jpg',
+  },
+]
+
+export const panelUrl = 'https://panel.herdex.app'
+
+export const panelViews = [
+  {
+    id: 'tablero',
+    label: 'Tablero',
+    title: 'Todo el hato de un vistazo',
+    text: 'Animales, kilos en pie, ganancia diaria promedio y los pesajes que ya se vencieron.',
+  },
+  {
+    id: 'lotes',
+    label: 'Lotes',
+    title: 'Compara lotes y potreros',
+    text: 'Curva mensual de peso por lote y aviso del que avanza más lento.',
+  },
+  {
+    id: 'proyeccion',
+    label: 'Proyección',
+    title: 'Planea la venta',
+    text: 'Fecha estimada para llegar al peso meta y valor del hato según tu precio por kilo.',
+  },
+  {
+    id: 'repesajes',
+    label: 'Repesajes',
+    title: 'Sabe a quién toca pesar',
+    text: 'Plan según el intervalo que elijas y lista imprimible para llevar al corral.',
+  },
+  {
+    id: 'reportes',
+    label: 'Reportes',
+    title: 'Exporta tus datos',
+    text: 'Pesajes filtrados por fecha y lote, listos para Excel (CSV) o PDF.',
   },
 ]

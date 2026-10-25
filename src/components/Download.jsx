@@ -1,5 +1,5 @@
 import Reveal from './Reveal.jsx'
-import { navLinks, credits } from '../data.js'
+import { navLinks, credits, disclaimer } from '../data.js'
 
 export function Download() {
   return (
@@ -51,6 +51,7 @@ export function Footer({ base = '' }) {
             <a href="/privacidad.html">Privacidad</a>
           </nav>
         </div>
+        <p className="footer-disclaimer">{disclaimer}</p>
         <div className="footer-bottom">
           <small>© {new Date().getFullYear()} HerDex. Estimación de peso bovino mediante análisis fotográfico.</small>
           <small>

@@ -1,7 +1,9 @@
 import { useId, useState } from 'react'
 import Reveal from './Reveal.jsx'
+import PrecisionScan from './PrecisionScan.jsx'
+import { disclaimer } from '../data.js'
 
-function Slider({ label, unit, value, min, max, onChange }) {
+export function Slider({ label, unit, value, min, max, step = 1, onChange }) {
   const id = useId()
   return (
     <div className="slider">
@@ -16,6 +18,7 @@ function Slider({ label, unit, value, min, max, onChange }) {
         type="range"
         min={min}
         max={max}
+        step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         style={{ '--fill': `${((value - min) / (max - min)) * 100}%` }}
@@ -34,15 +37,17 @@ export default function Calculator() {
       <div className="container calc">
         <Reveal className="calc-copy">
           <span className="eyebrow">Precisión</span>
-          <h2 className="heading">Ciencia ganadera, sin cinta métrica</h2>
+          <h2 className="heading">Inteligencia artificial al servicio de la zootecnia</h2>
           <p>
-            HerDex usa el mismo principio que la cinta bovinométrica: el peso se calcula a partir del perímetro torácico
-            y el largo corporal. La diferencia es que las medidas las toma la IA desde la foto, sin tocar al animal.
+            HerDex combina dos cosas: modelos de inteligencia artificial de visión, entrenados a gran escala para
+            interpretar imágenes, y fórmulas zootécnicas reconocidas. La IA mide el cuerpo del animal desde la foto y las
+            fórmulas convierten esas medidas en peso, el mismo principio de la cinta bovinométrica, pero sin tocar al
+            animal.
           </p>
-          <p className="calc-note">
-            Es una estimación orientativa. Cada resultado muestra su nivel de confianza; para transacciones críticas,
-            valida con una báscula.
-          </p>
+          <div className="calc-note">
+            <strong>Importante:</strong> {disclaimer} Cada resultado muestra su nivel de confianza; para ventas o
+            decisiones que requieran el peso exacto, usa una báscula.
+          </div>
         </Reveal>
 
         <Reveal className="calc-card" delay={100}>
@@ -59,6 +64,11 @@ export default function Calculator() {
               <small> kg</small>
             </strong>
           </div>
+        </Reveal>
+      </div>
+      <div className="container">
+        <Reveal>
+          <PrecisionScan />
         </Reveal>
       </div>
     </section>

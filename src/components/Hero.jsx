@@ -12,8 +12,8 @@ export default function Hero() {
             con una foto
           </h1>
           <p className="hero-lead">
-            Toma una foto de costado. HerDex mide el cuerpo del animal y calcula su peso en segundos: sin báscula, sin
-            manga y sin estrés.
+            Toma una foto de costado. HerDex mide el cuerpo del animal y estima su peso en segundos, sin moverlo ni
+            estresarlo.
           </p>
           <div className="hero-actions">
             <a href="#descargar" className="btn btn-lime">
@@ -23,6 +23,7 @@ export default function Hero() {
               Ver cómo funciona
             </a>
           </div>
+          <p className="hero-disclaimer">Estimación orientativa. No reemplaza el pesaje en báscula.</p>
         </div>
 
         <figure className="hero-media">

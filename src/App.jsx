@@ -3,12 +3,14 @@ import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 import Features from './components/Features.jsx'
+import Panel from './components/Panel.jsx'
+import Savings from './components/Savings.jsx'
 import Calculator from './components/Calculator.jsx'
 import Faq from './components/Faq.jsx'
 import { Download, Footer } from './components/Download.jsx'
 
 const highlights = [
-  { icon: Camera, title: 'Sin báscula', text: 'Solo necesitas el celular que ya llevas al potrero.' },
+  { icon: Camera, title: 'Sin mover al animal', text: 'Estima el peso con el celular que ya llevas al potrero.' },
   { icon: WifiOff, title: 'Funciona sin señal', text: 'Registra en el campo y sincroniza al volver.' },
   { icon: BookOpen, title: 'Historial por animal', text: 'Cada pesaje queda guardado con foto y fecha.' },
 ]
@@ -32,8 +34,10 @@ export default function App() {
             ))}
           </div>
         </section>
+        <Savings />
         <HowItWorks />
         <Features />
+        <Panel />
         <Calculator />
         <Faq />
         <Download />
