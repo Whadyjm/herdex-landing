@@ -1,26 +1,23 @@
 import Reveal from './Reveal.jsx'
+import { t } from '../i18n.js'
 
 export default function Savings() {
   return (
     <section id="ahorro" className="section">
       <div className="container savings">
         <Reveal className="savings-head">
-          <span className="eyebrow">Lo que está en juego</span>
-          <h2 className="heading">Cada kilo mal calculado es dinero que no ves</h2>
-          <p>
-            Vender a ojo o pagar una báscula para cada lote te cuesta de las dos formas. HerDex te da una estimación rápida
-            con el celular que ya tienes, para saber cuándo vale la pena llevar el lote a la báscula.
-          </p>
+          <span className="eyebrow">{t.savings.eyebrow}</span>
+          <h2 className="heading">{t.savings.heading}</h2>
+          <p>{t.savings.text}</p>
         </Reveal>
 
         <Reveal className="savings-body" delay={100}>
           <ul className="savings-list">
-            <li>Estima en el potrero y lleva a la báscula solo los lotes que lo necesitan</li>
-            <li>Sin mover ni estresar al animal: un animal tranquilo no pierde peso</li>
-            <li>Pesa más seguido y detecta a tiempo qué animal no está ganando kilos</li>
-            <li>Negocia con datos, no con corazonadas</li>
+            {t.savings.list.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
-          <p className="savings-cta">Pesa mejor. Vende mejor.</p>
+          <p className="savings-cta">{t.savings.cta}</p>
         </Reveal>
       </div>
     </section>

@@ -4,6 +4,9 @@ import Navbar from './components/Navbar.jsx'
 import { Footer } from './components/Download.jsx'
 import AccountDeletion from './components/AccountDeletion.jsx'
 import './styles.css'
+import { applyMeta } from './i18n.js'
+
+applyMeta('deletion')
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

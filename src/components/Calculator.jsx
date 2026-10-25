@@ -2,6 +2,7 @@ import { useId, useState } from 'react'
 import Reveal from './Reveal.jsx'
 import PrecisionScan from './PrecisionScan.jsx'
 import { disclaimer } from '../data.js'
+import { t } from '../i18n.js'
 
 export function Slider({ label, unit, value, min, max, step = 1, onChange }) {
   const id = useId()
@@ -36,29 +37,23 @@ export default function Calculator() {
     <section id="calculadora" className="section tint">
       <div className="container calc">
         <Reveal className="calc-copy">
-          <span className="eyebrow">Precisión</span>
-          <h2 className="heading">Inteligencia artificial al servicio de la zootecnia</h2>
-          <p>
-            HerDex combina dos cosas: modelos de inteligencia artificial de visión, entrenados a gran escala para
-            interpretar imágenes, y fórmulas zootécnicas reconocidas. La IA mide el cuerpo del animal desde la foto y las
-            fórmulas convierten esas medidas en peso, el mismo principio de la cinta bovinométrica, pero sin tocar al
-            animal.
-          </p>
+          <span className="eyebrow">{t.calc.eyebrow}</span>
+          <h2 className="heading">{t.calc.heading}</h2>
+          <p>{t.calc.text}</p>
           <div className="calc-note">
-            <strong>Importante:</strong> {disclaimer} Cada resultado muestra su nivel de confianza; para ventas o
-            decisiones que requieran el peso exacto, usa una báscula.
+            <strong>{t.calc.important}</strong> {disclaimer} {t.calc.noteTail}
           </div>
         </Reveal>
 
         <Reveal className="calc-card" delay={100}>
           <div className="calc-card-head">
-            <span>Fórmula de Schaeffer</span>
-            <code>(PT² × L) / 10 000</code>
+            <span>{t.calc.formulaName}</span>
+            <code>{t.calc.formula}</code>
           </div>
-          <Slider label="Perímetro torácico (PT)" unit="cm" value={pt} min={120} max={240} onChange={setPt} />
-          <Slider label="Largo corporal (L)" unit="cm" value={l} min={100} max={200} onChange={setL} />
+          <Slider label={t.calc.girth} unit="cm" value={pt} min={120} max={240} onChange={setPt} />
+          <Slider label={t.calc.length} unit="cm" value={l} min={100} max={200} onChange={setL} />
           <div className="calc-result" aria-live="polite">
-            <span>Peso estimado</span>
+            <span>{t.calc.estimated}</span>
             <strong>
               {weight}
               <small> kg</small>

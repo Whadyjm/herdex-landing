@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import Reveal from './Reveal.jsx'
 import { faqs } from '../data.js'
+import { t } from '../i18n.js'
 
 export default function Faq() {
   const [openIdx, setOpenIdx] = useState(0)
@@ -9,8 +10,8 @@ export default function Faq() {
     <section id="faq" className="section">
       <div className="container faq-wrap">
         <Reveal className="faq-head">
-          <span className="eyebrow">Preguntas frecuentes</span>
-          <h2 className="heading">Lo que nos preguntan los ganaderos</h2>
+          <span className="eyebrow">{t.faq.eyebrow}</span>
+          <h2 className="heading">{t.faq.heading}</h2>
         </Reveal>
         <Reveal className="faq">
           {faqs.map((f, i) => {

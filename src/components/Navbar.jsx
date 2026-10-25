@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '../data.js'
 import { useScrolled } from '../hooks.js'
+import { LANGS, LANG_NAMES, lang, setLang, t } from '../i18n.js'
 
 // `base` permite reutilizar la barra en otras páginas (p. ej. "/" para volver a las secciones de la landing).
 export default function Navbar({ base = '' }) {
@@ -17,23 +18,30 @@ export default function Navbar({ base = '' }) {
           <span>HerDex</span>
         </a>
 
-        <nav className={`nav-links ${open ? 'is-open' : ''}`} aria-label="Principal">
+        <nav className={`nav-links ${open ? 'is-open' : ''}`} aria-label={t.nav.main}>
           {navLinks.map((l) => (
             <a key={l.href} href={base + l.href} onClick={close}>
               {l.label}
             </a>
           ))}
           <a href={`${base}#descargar`} className="btn btn-lime nav-links-cta" onClick={close}>
-            Descargar
+            {t.nav.download}
           </a>
         </nav>
 
+        <select className="lang-select" aria-label={t.nav.language} value={lang} onChange={(e) => setLang(e.target.value)}>
+          {LANGS.map((l) => (
+            <option key={l} value={l}>
+              {l.toUpperCase()} · {LANG_NAMES[l]}
+            </option>
+          ))}
+        </select>
         <a href={`${base}#descargar`} className="btn btn-lime btn-sm nav-cta">
-          Descargar
+          {t.nav.download}
         </a>
         <button
           className="menu-toggle"
-          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+          aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
         >

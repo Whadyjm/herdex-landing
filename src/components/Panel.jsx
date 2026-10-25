@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ArrowUpRight, Lock } from 'lucide-react'
 import Reveal from './Reveal.jsx'
 import { panelUrl, panelViews } from '../data.js'
+import { t } from '../i18n.js'
 
 export default function Panel() {
   const [active, setActive] = useState(panelViews[0].id)
@@ -11,16 +12,13 @@ export default function Panel() {
     <section id="panel" className="section dark">
       <div className="container">
         <Reveal className="section-head">
-          <span className="eyebrow">Panel web para productores</span>
-          <h2 className="heading">Del potrero a la oficina</h2>
-          <p className="panel-lead">
-            La app registra los pesajes en el campo. En el panel los ves desde la computadora para analizar el hato y
-            decidir cuándo vender, a quién repesar y qué lote necesita atención.
-          </p>
+          <span className="eyebrow">{t.panel.eyebrow}</span>
+          <h2 className="heading">{t.panel.heading}</h2>
+          <p className="panel-lead">{t.panel.lead}</p>
         </Reveal>
 
         <div className="panel">
-          <Reveal className="panel-tabs" role="tablist" aria-label="Vistas del panel">
+          <Reveal className="panel-tabs" role="tablist" aria-label={t.panel.tabs}>
             {panelViews.map((v) => (
               <button
                 key={v.id}
@@ -54,7 +52,7 @@ export default function Panel() {
                 <img
                   key={v.id}
                   src={`/img/panel/${v.id}.webp`}
-                  alt={`Vista ${v.label} del panel de HerDex con un hato de ejemplo`}
+                  alt={t.panel.alt(v.label)}
                   width="1600"
                   height="1000"
                   loading="lazy"
@@ -65,16 +63,16 @@ export default function Panel() {
             </div>
             <p className="panel-caption">
               <span className="panel-caption-text">{view.text} </span>
-              Datos de ejemplo.
+              {t.panel.sample}
             </p>
           </Reveal>
         </div>
 
         <Reveal className="panel-cta">
           <a href={panelUrl} className="btn btn-lime" target="_blank" rel="noreferrer">
-            Abrir el panel <ArrowUpRight size={18} strokeWidth={2.25} />
+            {t.panel.open} <ArrowUpRight size={18} strokeWidth={2.25} />
           </a>
-          <p>Entra con la misma cuenta de la app. Sin instalar nada.</p>
+          <p>{t.panel.sameAccount}</p>
         </Reveal>
       </div>
     </section>

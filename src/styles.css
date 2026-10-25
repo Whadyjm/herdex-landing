@@ -51,6 +51,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav-links-cta{display:none}
 .menu-toggle{display:none;width:44px;height:44px;border-radius:var(--r-pill);align-items:center;justify-content:center;color:var(--forest);margin-left:auto}
 .menu-toggle:hover{background:var(--fog)}
+.lang-select{height:36px;padding:0 10px;border:1px solid var(--fog);border-radius:var(--r-pill);background:var(--paper);color:var(--forest);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.lang-select:hover{border-color:var(--forest)}
 
 /* Hero */
 .hero{padding:72px 0 0}
@@ -248,6 +250,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .container{padding:0 16px}
   .menu-toggle{display:inline-flex}
   .nav-cta{display:none}
+  .lang-select{margin-left:auto}
+  .lang-select + .nav-cta + .menu-toggle{margin-left:0}
   .nav-links{position:absolute;top:var(--nav-h);left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;margin:0;padding:8px 16px 20px;background:var(--paper);border-bottom:1px solid var(--fog);visibility:hidden;opacity:0;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s}
   .nav-links.is-open{visibility:visible;opacity:1;transform:none}
   .nav-links a:not(.btn){padding:14px 16px;font-size:18px}

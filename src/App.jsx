@@ -8,12 +8,10 @@ import Savings from './components/Savings.jsx'
 import Calculator from './components/Calculator.jsx'
 import Faq from './components/Faq.jsx'
 import { Download, Footer } from './components/Download.jsx'
+import { t } from './i18n.js'
 
-const highlights = [
-  { icon: Camera, title: 'Sin mover al animal', text: 'Estima el peso con el celular que ya llevas al potrero.' },
-  { icon: WifiOff, title: 'Funciona sin señal', text: 'Registra en el campo y sincroniza al volver.' },
-  { icon: BookOpen, title: 'Historial por animal', text: 'Cada pesaje queda guardado con foto y fecha.' },
-]
+const highlightIcons = [Camera, WifiOff, BookOpen]
+const highlights = t.highlights.map((h, i) => ({ ...h, icon: highlightIcons[i] }))
 
 export default function App() {
   return (
@@ -21,7 +19,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <section className="highlights" aria-label="Ventajas">
+        <section className="highlights" aria-label={t.highlightsLabel}>
           <div className="container highlights-grid">
             {highlights.map(({ icon: Icon, title, text }) => (
               <div key={title} className="highlight">

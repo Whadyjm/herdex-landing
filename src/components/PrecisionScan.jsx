@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { RotateCcw } from 'lucide-react'
 import cloud from '../assets/bull-points.json'
+import { intlLocale, t, t as tr } from '../i18n.js'
 
 // Escena en coordenadas de la foto original (1280×1040). Valores ilustrativos de la demostración.
 const W = cloud.w
@@ -105,7 +106,7 @@ function draw(ctx, t) {
     ctx.moveTo(x1, y1)
     ctx.lineTo(x1 + (x2 - x1) * pl, y1 + (y2 - y1) * pl)
     ctx.stroke()
-    if (pl > 0.98) pill(ctx, 470, 300, `L ${MEASURES.length} cm`)
+    if (pl > 0.98) pill(ctx, 470, 300, `${t.how.lengthAbbr} ${MEASURES.length} cm`)
   }
 
   // Perímetro torácico.
@@ -118,7 +119,7 @@ function draw(ctx, t) {
     ctx.ellipse(690, 440, 52, 208, 0, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * pg)
     ctx.stroke()
     ctx.setLineDash([])
-    if (pg > 0.98) pill(ctx, 690, 715, `PT ${MEASURES.girth} cm`)
+    if (pg > 0.98) pill(ctx, 690, 715, `${t.how.girthAbbr} ${MEASURES.girth} cm`)
   }
 
   // Altura a la cruz.
@@ -161,7 +162,7 @@ function draw(ctx, t) {
   }
 }
 
-const STAGES = ['Escaneando silueta', 'Detectando puntos anatómicos', 'Midiendo el cuerpo', 'Calculando peso', 'Análisis completo']
+const STAGES = t.scan.stages
 
 export default function PrecisionScan() {
   const canvasRef = useRef(null)
@@ -235,10 +236,10 @@ export default function PrecisionScan() {
     <div className="scan-card">
       <div className="scan-head">
         <div>
-          <span className="eyebrow">Así ve HerDex al animal</span>
-          <h3>Visión artificial en tiempo real</h3>
+          <span className="eyebrow">{tr.scan.eyebrow}</span>
+          <h3>{tr.scan.heading}</h3>
         </div>
-        <span className="scan-chip">Demostración</span>
+        <span className="scan-chip">{tr.scan.chip}</span>
       </div>
 
       <div className="scan-grid">
@@ -246,7 +247,7 @@ export default function PrecisionScan() {
           <canvas
             ref={canvasRef}
             role="img"
-            aria-label="Animación: la IA escanea la silueta de un toro, marca seis puntos anatómicos y traza el largo corporal, el perímetro torácico y la altura a la cruz."
+            aria-label={tr.scan.aria}
           />
           <div className="scan-status" aria-hidden="true">
             <span className={`scan-dot ${done ? 'is-done' : ''}`} />
@@ -257,32 +258,32 @@ export default function PrecisionScan() {
         <aside className="scan-panel" aria-live="off">
           <dl className="scan-metrics">
             <div>
-              <dt>Puntos de silueta</dt>
-              <dd>{r.points.toLocaleString('es')}</dd>
+              <dt>{tr.scan.silhouettePoints}</dt>
+              <dd>{r.points.toLocaleString(intlLocale)}</dd>
             </div>
             <div>
-              <dt>Puntos anatómicos</dt>
+              <dt>{tr.scan.keypoints}</dt>
               <dd>
                 {r.keypoints}
                 <small>/{KEYPOINTS.length}</small>
               </dd>
             </div>
             <div>
-              <dt>Largo corporal</dt>
+              <dt>{tr.scan.length}</dt>
               <dd>
                 {r.length}
                 <small> cm</small>
               </dd>
             </div>
             <div>
-              <dt>Perímetro torácico</dt>
+              <dt>{tr.scan.girth}</dt>
               <dd>
                 {r.girth}
                 <small> cm</small>
               </dd>
             </div>
             <div>
-              <dt>Altura a la cruz</dt>
+              <dt>{tr.scan.height}</dt>
               <dd>
                 {r.height}
                 <small> cm</small>
@@ -295,22 +296,22 @@ export default function PrecisionScan() {
               className="scan-ring"
               style={{ '--p': r.confidence }}
               role="img"
-              aria-label={`Confianza ${r.confidence}%`}
+              aria-label={tr.scan.confidence(r.confidence)}
             >
               <span>{r.confidence}%</span>
             </div>
             <div>
-              <span className="scan-result-label">Peso estimado</span>
+              <span className="scan-result-label">{tr.scan.estimated}</span>
               <strong>
                 {r.weight}
                 <small> kg</small>
               </strong>
-              <span className="scan-result-meta">Confianza del análisis</span>
+              <span className="scan-result-meta">{tr.scan.analysisConfidence}</span>
             </div>
           </div>
 
           <button className="scan-replay" onClick={replay} disabled={!done}>
-            <RotateCcw size={16} strokeWidth={2.25} /> Repetir análisis
+            <RotateCcw size={16} strokeWidth={2.25} /> {tr.scan.replay}
           </button>
         </aside>
       </div>

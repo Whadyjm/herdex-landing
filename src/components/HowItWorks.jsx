@@ -1,5 +1,6 @@
 import Reveal from './Reveal.jsx'
 import { steps } from '../data.js'
+import { t } from '../i18n.js'
 
 // Medidas dibujadas sobre la foto (coordenadas en píxeles de la imagen original, 1280×1040).
 function MeasureOverlay() {
@@ -13,11 +14,11 @@ function MeasureOverlay() {
       <ellipse className="measure-girth" cx="690" cy="440" rx="48" ry="210" />
       <g className="measure-label" transform="translate(300 300)">
         <rect width="180" height="52" rx="26" />
-        <text x="90" y="34">L 172 cm</text>
+        <text x="90" y="34">{t.how.lengthAbbr} 172 cm</text>
       </g>
       <g className="measure-label" transform="translate(560 680)">
         <rect width="200" height="52" rx="26" />
-        <text x="100" y="34">PT 198 cm</text>
+        <text x="100" y="34">{t.how.girthAbbr} 198 cm</text>
       </g>
     </svg>
   )
@@ -28,15 +29,15 @@ export default function HowItWorks() {
     <section id="como-funciona" className="section dark">
       <div className="container how">
         <Reveal className="how-head">
-          <span className="eyebrow">Cómo funciona</span>
-          <h2 className="display-md">De la foto al peso</h2>
+          <span className="eyebrow">{t.how.eyebrow}</span>
+          <h2 className="display-md">{t.how.heading}</h2>
         </Reveal>
 
         <Reveal as="figure" className="how-media">
           <div className="measure-frame">
             <img
               src="/img/brahman-side.webp"
-              alt="Toro Brahman de perfil con las medidas de largo corporal y perímetro torácico marcadas"
+              alt={t.how.alt}
               width="1280"
               height="1040"
               loading="lazy"
@@ -44,7 +45,7 @@ export default function HowItWorks() {
             <MeasureOverlay />
           </div>
           <figcaption>
-            <span>Resultado</span>
+            <span>{t.how.result}</span>
             <strong>674 kg</strong>
             <span>(198² × 172) / 10 000</span>
           </figcaption>
