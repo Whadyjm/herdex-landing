@@ -49,6 +49,7 @@ export function Footer({ base = '' }) {
               </a>
             ))}
             <a href="/privacidad.html">Privacidad</a>
+            <a href="/eliminar-cuenta.html">Eliminar cuenta</a>
           </nav>
         </div>
         <p className="footer-disclaimer">{disclaimer}</p>

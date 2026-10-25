@@ -175,7 +175,16 @@ export default function PrivacyPolicy() {
 
           <section id="eliminar-cuenta">
             <h2>8. Eliminar tu cuenta y tus datos</h2>
-            <p>Puedes solicitar la eliminación de tu cuenta de HerDex y de todos los datos asociados en cualquier momento:</p>
+            <p>Puedes eliminar tu cuenta de HerDex y todos los datos asociados en cualquier momento:</p>
+            <ul>
+              <li>
+                <strong>Desde la app, al instante:</strong> Perfil → Eliminar cuenta. Los pasos están en{' '}
+                <a href="/eliminar-cuenta.html">herdex.app/eliminar-cuenta</a>.
+              </li>
+              <li>
+                <strong>Sin la app:</strong> sigue estos pasos.
+              </li>
+            </ul>
             <ol>
               <li>
                 Escribe a <Mail /> desde el correo con el que creaste la cuenta, con el asunto «Eliminar mi cuenta de
@@ -185,8 +194,8 @@ export default function PrivacyPolicy() {
               <li>Te confirmaremos la eliminación en un plazo máximo de 30 días.</li>
             </ol>
             <p>
-              Se eliminan de forma permanente: tu correo y credenciales de acceso, todos tus registros de pesaje y las
-              fotografías respaldadas. No conservamos copias, salvo que la ley nos obligue a guardar algún dato por un
+              Se eliminan de forma permanente: tu correo y credenciales de acceso, todos tus registros de pesaje, las
+              fotografías respaldadas, tus lotes y tus preferencias. No conservamos copias, salvo que la ley nos obligue a guardar algún dato por un
               periodo determinado.
             </p>
             <p>
