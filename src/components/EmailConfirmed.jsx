@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { legal } from '../legal.js'
 import { lang } from '../i18n.js'
 
@@ -45,6 +46,9 @@ function readResult() {
   const params = new URLSearchParams(location.search)
   const hash = new URLSearchParams(location.hash.slice(1))
   const failed = params.has('error') || hash.has('error') || params.has('error_code') || hash.has('error_code')
+  // Solo se llega con code/token desde el enlace del correo; al recargar la
+  // página (ya sin ellos) no se vuelve a abrir la app.
+  const fromEmail = params.has('code') || hash.has('access_token')
   if (location.search || location.hash) {
     // Quita tokens y códigos de la URL (historial, capturas, compartir).
     const keep = new URLSearchParams()
@@ -52,14 +56,22 @@ function readResult() {
     const qs = keep.toString()
     history.replaceState(null, '', location.pathname + (qs ? `?${qs}` : ''))
   }
-  return !failed
+  return { ok: !failed, fromEmail }
 }
 
-const ok = readResult()
+const { ok, fromEmail } = readResult()
 const isAndroid = /android/i.test(navigator.userAgent)
 
 export default function EmailConfirmed() {
   const c = content
+
+  // Plan B del App Link: en Android intenta abrir la app sin esperar al
+  // toque. Va sin demora para que Chrome lo cuente como parte del clic en el
+  // correo; si lo bloquea, queda el botón.
+  useEffect(() => {
+    if (ok && fromEmail && isAndroid) location.href = OPEN_APP
+  }, [])
+
   return (
     <section className="confirm">
       <div className="container">
