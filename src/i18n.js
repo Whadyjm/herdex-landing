@@ -58,6 +58,10 @@ const es = {
       title: 'Eliminar tu cuenta — HerDex',
       description: 'Cómo eliminar tu cuenta de HerDex y todos tus datos, desde la app o por correo.',
     },
+    confirmed: {
+      title: 'Correo confirmado — HerDex',
+      description: 'Tu cuenta de HerDex está activa. Vuelve a la app e inicia sesión.',
+    },
   },
   nav: {
     links: [
@@ -236,6 +240,10 @@ const pt = {
       title: 'Excluir sua conta — HerDex',
       description: 'Como excluir sua conta do HerDex e todos os seus dados, pelo app ou por e-mail.',
     },
+    confirmed: {
+      title: 'E-mail confirmado — HerDex',
+      description: 'Sua conta do HerDex está ativa. Volte ao app e entre.',
+    },
   },
   nav: {
     links: [
@@ -413,6 +421,10 @@ const en = {
     deletion: {
       title: 'Delete your account — HerDex',
       description: 'How to delete your HerDex account and all your data, from the app or by email.',
+    },
+    confirmed: {
+      title: 'Email confirmed — HerDex',
+      description: 'Your HerDex account is active. Go back to the app and sign in.',
     },
   },
   nav: {

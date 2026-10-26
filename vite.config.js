@@ -11,6 +11,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         privacidad: resolve(__dirname, 'privacidad.html'),
         eliminarCuenta: resolve(__dirname, 'eliminar-cuenta.html'),
+        cuentaConfirmada: resolve(__dirname, 'cuenta-confirmada.html'),
       },
     },
   },
